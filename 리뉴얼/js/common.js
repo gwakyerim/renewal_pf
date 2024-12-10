@@ -48,17 +48,17 @@ const closeBtn = document.querySelector('.modal-close');
 const modalOverlay =document.querySelector('.modal-overlay');
 
 //1.modal-open 버튼을 클릭한다.
-//2. modal 에 display를 보이게한다.
-openBtn.onclick = function() {
-    modal.style.display = "block";
-}
+//2. modal 에 active를 추가한다.
+openBtn.addEventListener('click', function() {
+    modal.classList.add('active');
+})
 //3.modal-colse 버튼을 클릭한다.
 //4. modal 에 display를 감춘다.
-closeBtn.onclick = function() {
-    modal.style.display = "none";
-}
+closeBtn.addEventListener('click', function() {
+    modal.classList.remove('active');
+})
 //5. modal-overlay 창을 클릭한다.
 //6. modal 에 display를 감춘다.
-modalOverlay.onclick = function() {
-    modal.style.display = "none";
-}
+modalOverlay.addEventListener('click', function() {
+    modalOverlay.classList.remove('active');
+})
