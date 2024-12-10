@@ -24,19 +24,19 @@
 
             <nav>
                 <ul>
-                    <li>
+                    <li class="menu-list">
                         <a href="#home">HOME</a>
                     </li>
-                    <li>
+                    <li class="menu-list">
                         <a href="#about-me">ABOUT ME</a>
                     </li>
-                    <li>
+                    <li class="menu-list">
                         <a href="#skills">SKILLS</a>
                     </li>
-                    <li>
+                    <li class="menu-list">
                         <a href="#portfolio">PORTFOLIO</a>
                     </li>
-                    <li>
+                    <li class="menu-list">
                         <a href="#contact">CONTACT</a>
                     </li>
                 </ul>
@@ -63,8 +63,16 @@
                             <div class="img-wrap">
                                 <img src="./img/aboutme-yerim.jpg" alt="예림 대표사진">
                             </div>
-                            <div class="btn-wrap">
-                                <a class="resume" href="#none">이력서 보기</a>
+                            <div class="resume">
+                                <button class="modal-open">이력서 보기</button>
+                            </div>
+                            <div class="modal">
+                                <div class="modal-overlay">
+                                    <div class="resume-img">
+                                        <img src="./img/resume.jpg" alt="이력서">
+                                    </div>
+                                    <button class="modal-close">닫기</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -176,17 +184,23 @@
                 </div>
                 <div class="content-design">
                     <h3>Design</h3>
+                    <div class="modal">
+                        <div class="modal-overlay">
+                            <div class="design-img" style="background-image: ;"></div>
+                            <button class="modal-close">닫기</button>
+                        </div>
+                    </div>
                     <ul class="design-view">
-                        <li>
+                        <li class="design-list">
                             <a href="#none" style="background-image: url(./img/design-01.png)"></a>
                         </li>
-                        <li>
+                        <li class="design-list">
                             <a href="#none" style="background-image: url(./img/design-02.png)"></a>
                         </li>
-                        <li>
+                        <li class="design-list">
                             <a href="#none" style="background-image: url(./img/design-03.png)"></a>
                         </li>
-                        <li>
+                        <li class="design-list">
                             <a href="#none" style="background-image: url(./img/design-04.png)"></a>
                         </li>
                     </ul>

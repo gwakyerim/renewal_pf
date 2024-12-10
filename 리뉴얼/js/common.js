@@ -10,6 +10,20 @@ hamburgerMenu.addEventListener('click', function() {
     this.classList.toggle('active');
 })
 
+const menuList = document.querySelectorAll('.menu-list');
+// 1. mobile-menu 를 클릭한다.
+for (var i = 0; i < menuList.length; i++) {
+    //2. menuList 를 클릭하면 nav창이 닫힌다.
+    //3. 햄버거 메뉴에 active 를 삭제시킨다.
+    menuList[i].addEventListener('click', function() {
+        document.querySelector('nav').classList.remove('active');
+        hamburgerMenu.classList.remove('active');
+    })
+    if (i === 4) {
+        break;
+    }
+}
+
 // 1.윈도우 창 스크롤을 내린다.
 const preScrollTop = 100;
 window.addEventListener('scroll', function() {
@@ -27,3 +41,24 @@ window.addEventListener('scroll', function() {
         document.querySelector('header').classList.remove('active');
     }
 })
+
+const modal = document.querySelector('.modal');
+const openBtn = document.querySelector('.modal-open');
+const closeBtn = document.querySelector('.modal-close');
+const modalOverlay =document.querySelector('.modal-overlay');
+
+//1.modal-open 버튼을 클릭한다.
+//2. modal 에 display를 보이게한다.
+openBtn.onclick = function() {
+    modal.style.display = "block";
+}
+//3.modal-colse 버튼을 클릭한다.
+//4. modal 에 display를 감춘다.
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
+//5. modal-overlay 창을 클릭한다.
+//6. modal 에 display를 감춘다.
+modalOverlay.onclick = function() {
+    modal.style.display = "none";
+}

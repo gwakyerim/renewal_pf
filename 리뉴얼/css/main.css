@@ -120,6 +120,42 @@ footer {
 }
 
 /* 햄버거 메뉴 애니메이션 끝 */
+/* 모달창 공통영역 */
+.modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.modal .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(19, 19, 19, 0.7333333333);
+}
+.modal .modal-overlay .resume-img {
+  max-width: 1200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal .modal-overlay .modal-close {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--green);
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
 header {
   z-index: 1000;
   transition: 0.5s;
@@ -156,13 +192,13 @@ header .container nav ul {
   font-size: 20px;
   font-weight: 500;
 }
-header .container nav ul li {
+header .container nav ul .menu-list {
   transition: 0.5s;
 }
-header .container nav ul li:hover {
+header .container nav ul .menu-list:hover {
   transform: scale(1.2);
 }
-header .container nav ul li a {
+header .container nav ul .menu-list a {
   height: 50px;
   display: flex;
   align-items: center;
@@ -211,6 +247,7 @@ header .container nav ul li a {
   height: 4px;
   background-color: transparent;
   transform-origin: left;
+  animation: logoring 4.5s linear infinite;
 }
 .home .circle .text span:before {
   content: "";
@@ -236,6 +273,7 @@ header .container nav ul li a {
   border-top: 3px solid rgba(9, 9, 9, 0.57);
   border-right: 3px solid rgba(9, 9, 9, 0.57);
   border-radius: 50%;
+  animation: logoAni 4.5s linear infinite;
 }
 .home .scroll-down {
   position: absolute;
@@ -267,6 +305,9 @@ header .container nav ul li a {
   animation: scroll 2s infinite;
 }
 
+.about-me {
+  position: relative;
+}
 .about-me .content-inner {
   display: flex;
   justify-content: space-between;
@@ -293,10 +334,11 @@ header .container nav ul li a {
 .about-me .content-inner .left div .img-wrap img {
   width: 100%;
 }
-.about-me .content-inner .left div .btn-wrap {
+.about-me .content-inner .left div .resume {
   margin: 0 auto;
 }
-.about-me .content-inner .left div .btn-wrap .resume {
+.about-me .content-inner .left div .resume .modal-open {
+  cursor: pointer;
   background-color: var(--white);
   border-radius: 10px;
   display: inline-block;
@@ -305,7 +347,7 @@ header .container nav ul li a {
   border: 1px solid var(--green);
   position: relative;
 }
-.about-me .content-inner .left div .btn-wrap .resume:before {
+.about-me .content-inner .left div .resume .modal-open:before {
   content: "";
   position: absolute;
   display: block;
@@ -318,11 +360,11 @@ header .container nav ul li a {
   transition: 0.8s;
   z-index: -1;
 }
-.about-me .content-inner .left div .btn-wrap .resume:hover {
+.about-me .content-inner .left div .resume .modal-open:hover {
   color: var(--white);
   z-index: 1000;
 }
-.about-me .content-inner .left div .btn-wrap .resume:hover:before {
+.about-me .content-inner .left div .resume .modal-open:hover:before {
   width: 100%;
 }
 .about-me .content-inner .right {
@@ -522,11 +564,14 @@ footer .container {
     display: block;
     margin-top: 80px;
   }
-  header .container nav ul li {
-    padding: 16px 0;
+  header .container nav ul .menu-list {
+    padding: 8px 16px;
   }
-  header .container nav ul li:hover {
+  header .container nav ul .menu-list:hover {
     transform: none;
+  }
+  header .container nav ul .menu-list a {
+    padding: 32px 0;
   }
   header .container .mobile-nav {
     display: block;
@@ -575,6 +620,9 @@ footer .container {
   }
   .about-me .content-inner .left {
     width: 60%;
+  }
+  .about-me .content-inner .left div .modal .modal-overlay .resume-img {
+    width: calc(100% - 32px);
   }
   .about-me .content-inner .right {
     width: 100%;
@@ -629,7 +677,7 @@ footer .container {
     gap: 16px;
   }
   .contact .container .contact-inner .img-wrap {
-    width: 70%;
+    width: 60%;
   }
   .contact .container .contact-inner .text-wrap {
     width: 100%;
@@ -674,5 +722,21 @@ footer .container {
   }
   100% {
     opacity: 0;
+  }
+}
+@keyframes logoAni {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes logoring {
+  0% {
+    transform: rotate(48deg);
+  }
+  100% {
+    transform: rotate(408deg);
   }
 }
