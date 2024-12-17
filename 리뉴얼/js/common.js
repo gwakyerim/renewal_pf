@@ -10,6 +10,7 @@ hamburgerMenu.addEventListener('click', function() {
     this.classList.toggle('active');
 })
 
+
 const menuList = document.querySelectorAll('.menu-list');
 // 1. mobile-menu 를 클릭한다.
 for (var i = 0; i < menuList.length; i++) {
@@ -60,7 +61,7 @@ closeBtn.addEventListener('click', function() {
 //5. modal-overlay 창을 클릭한다.
 //6. modal 에 display를 감춘다.
 modalOverlay.addEventListener('click', function() {
-    modalOverlay.classList.remove('active');
+    modal.classList.remove('active');
 })
 
 const designList = document.querySelectorAll('.design-list');
@@ -79,14 +80,12 @@ designList.forEach(function(banner){
         document.querySelector('.content-design .modal').classList.add('on');
     })
 })
-
 document.querySelector('.content-design .modal').addEventListener('click', function() {
     this.classList.remove('on');
 })
 
 const tabList = document.querySelectorAll('.content-site .tab li');
 const siteList = document.querySelectorAll('.content-site .view .list-item');
-
 //1.tab > li 의 인덱스 번호를 찾는다.
 tabList.forEach(function(tab_btn, index){
     //2. tab > li 메뉴들 중 하나를 누른다.
